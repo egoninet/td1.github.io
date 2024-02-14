@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Ma Page</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        function afficheVille() 
+            {
+            // 1. Récupération de la valeur courante du select avec son id
+            let nomVilleChoisie = document.getElementById("ChoixVille").value;
+            // 2. Récupération de la liste de toutes les div correspondant à une div de météo
+            // grâce à la classe « ville »
+            let villes = document.getElementByClassName("Ville");
+            // 3. Parcours de la liste des div météo. On cache celles non sélectionnées.
+            for (i=0; i<villes.lenght; i++) 
+            {
+            // l’attribut id de l’élément est comparée à la ville choisie
+            if (villes[i].id == nomVilleChoisie) 
+            {
+            // garder l'élément visible -> ELEMENT.style.display= "";
+                villes[i];style.display="block";
+            } else 
+            {
+            // cacher l'élément -> ELEMENT.style.display= "none";
+                villes[i].style.display="none";
+            }
+            }
+            }
+    </script>
+</head>
+<body>
+    <header>
+        <p>TD n°1 Programmation web - Application météo</p>
+    </header>
+    <select onchange=afficheVille()>
+        <option value="Niort">Niort</option>
+        <option value="Rio">Rio</option>
+        <option value="Reykjavick">Reykjavick</option>
+    </select>
+    <div class="flex">
+        <div id="Niort" class="Ville">
+            <h2>Niort</h2>
+            <p>12°, pluvieux</p>
+            <img src="pluvieux.png" width="5%"/>
+        </div>
+
+        <div id="Rio" class="Ville">
+            <h2>Rio de Janeiro</h2>
+            <p>29°, orageux</p>
+            <img src="orageux.png" width="5%"/>
+        </div>
+
+        <div id="Reykjavick" class="Ville">
+            <h2>Reykjavick</h2>
+            <p>-10°, ensoleillé</p>
+            <img src="ensoleille.png" width="5%"/>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>Eliott Goninet de :</p>
+        <a href="https://thenounproject.com">The project</a>
+    </div>
+</body>
+</html>
